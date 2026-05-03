@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Study Hub | Global Education Consultant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fb;
+            min-height: 100vh;
+            color: #1a1a2e;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: white;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00695c, #00897b);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .nav-logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .nav-logo-text span {
+            color: #00695c;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00695c;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 80px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #e0f2f1;
+            color: #00695c;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+
+        .hero-content h1 span {
+            color: #00695c;
+            background: linear-gradient(135deg, #00695c, #00897b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: #00695c;
+        }
+
+        .hero-stat-label {
+            font-size: 14px;
+            color: #718096;
+        }
+
+        .hero-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo-showcase {
+            background: white;
+            padding: 40px;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px rgba(0,105,92,0.15);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00695c, #00897b, #00acc1);
+        }
+
+        .main-logo {
+            width: 160px;
+            height: 160px;
+            background: linear-gradient(135deg, #00695c, #00897b);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 80px;
+            box-shadow: 0 15px 30px rgba(0,105,92,0.2);
+        }
+
+        .logo-showcase h3 {
+            font-size: 24px;
+            color: #1a1a2e;
+            margin: 20px 0 5px;
+        }
+
+        .logo-showcase p {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            padding: 30px 20px;
+            border-radius: 24px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: #00695c;
+            box-shadow: 0 20px 40px rgba(0,105,92,0.1);
+            background: white;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1a1a2e;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        /* Download Section */
+        .download-section {
+            padding: 80px;
+            background: linear-gradient(135deg, #00695c 0%, #004d40 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .download-section h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .download-section p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            color: #00695c;
+            padding: 18px 48px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .version-info {
+            margin-top: 24px;
+            font-size: 14px;
+            opacity: 0.7;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px;
+            background: #f5f7fb;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-stars {
+            color: #ffc107;
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #00695c, #00897b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .author-info p {
+            font-size: 12px;
+            color: #718096;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 50px 80px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo p {
+            margin-top: 16px;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #94a3b8;
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #00897b;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2d2d44;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                padding: 40px;
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-content h1 {
+                font-size: 40px;
+            }
+            .hero-description {
+                margin: 0 auto 32px;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .features-section, .download-section, .testimonials-section {
+                padding: 50px 30px;
+            }
+            .navbar {
+                padding: 16px 24px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            .download-btn {
+                padding: 14px 32px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <div class="nav-logo-icon"><img src="STUDYHUB.png" alt="Study Hub Logo" style="width: 60%; height: 60%; object-fit: cover; border-radius: 5px;" onerror="this.style.display='none'; this.parentElement.innerHTML='📚'; this.parentElement.style.fontSize='50px';"></div>
+            <div class="nav-logo-text">Study <span>Hub</span></div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+           
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+           
+            <h1>Study <span>Where You Dream</span></h1>
+            <p class="hero-description">
+                Your personal study abroad consultant. Find universities, get visa help, 
+                and achieve your dreams with expert guidance at every step.
+            </p>
+          
+        <div class="hero-right">
+            <div class="logo-showcase">
+                <div class="main-logo">
+                    <img src="STUDYHUB.png" alt="Study Hub Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 40px;" onerror="this.style.display='none'; this.parentElement.innerHTML='📚'; this.parentElement.style.fontSize='50px';">
+                </div>
+                <h3>Study Hub</h3>
+                <p>Version 1.0</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="section-header">
+            <h2>Everything You Need to Study Abroad</h2>
+            <p>Comprehensive tools and guidance for your international education journey</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>University Matching</h3>
+                <p>AI-powered recommendations based on your profile and preferences</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3>SOP & Essay Help</h3>
+                <p>Expert guidance for Statement of Purpose and application essays</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛂</div>
+                <h3>Visa Assistance</h3>
+                <p>Complete visa documentation and interview preparation</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Scholarship Finder</h3>
+                <p>Discover scholarships and financial aid opportunities worldwide</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section">
+        <h2>Ready to Start Your Journey?</h2>
+        <p>Download the Study Hub app and take the first step toward your dream university</p>
+        <a href="#" class="download-btn" id="downloadBtn">
+            📲 Download App
+        </a>
+        <div class="version-info">
+            <span>📦 Size: ~25 MB</span>
+            <span>🤖 Android 6.0+</span>
+            <span>🎓 Free to Use</span>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <h2>Success Stories</h2>
+            <p>Hear from students who achieved their dreams with Study Hub</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text">
+                    "Study Hub made my dream of studying in Canada a reality. The visa guidance was exceptional!"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">PS</div>
+                    <div class="author-info">
+                        <h4>Priya Sharma</h4>
+                        <p>University of Toronto, Canada</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text">
+                    "Got scholarship worth $25,000 thanks to their guidance. Best decision ever!"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RM</div>
+                    <div class="author-info">
+                        <h4>Rahul Mehta</h4>
+                        <p>Technical University, Germany</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-text">
+                    "From university selection to visa interview - they supported me at every step."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AK</div>
+                    <div class="author-info">
+                        <h4>Aditya Kumar</h4>
+                        <p>University of Melbourne, Australia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3 style="color: white;">Study Hub</h3>
+                <p>Making study abroad dreams come true since 2020</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Blog</a>
+                <a href="#">FAQs</a>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <a href="#">Scholarships</a>
+                <a href="#">Visa Guide</a>
+                <a href="#">University List</a>
+                <a href="#">IELTS Tips</a>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <a href="#">📧 support@studyhub.com</a>
+                <a href="#">📞 +1 234 567 8900</a>
+                <a href="#">💬 Live Chat</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Study Hub. All rights reserved. Study Where You Dream.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 🔴 IMPORTANT: REPLACE WITH YOUR ACTUAL APK LINK 🔴
+        const YOUR_APK_LINK = "https://drive.google.com/file/d/1wI93jaZpXJEvuI63-N0tco8W5LsECcCT/view?usp=sharing";
+        
+        // Set download button link
+        const downloadBtn = document.getElementById('downloadBtn');
+        downloadBtn.href = YOUR_APK_LINK;
+        
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
